@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas JavaScript</title>
+    <style>
+        /* 
+        rgb(50, 55, 61)
+        rgb(24, 49, 83)
+        */
+        * {
+            box-sizing: border-box;
+            font-family: 'Space Grotesk';
+        }
+
+        body {
+            background-color: rgb(24, 49, 83);
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+
+        form {
+            background: transparent;
+            border: 1px solid rgb(165, 195, 238);
+            border-radius: 20px;
+            width: 50%;
+            min-width: 300px;
+        }
+
+        .flex {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            row-gap: 1rem;
+            /* background-color: #134B70; */
+            border: none;
+        }
+
+        .flex div:nth-child(1),
+        .flex div:last-child {
+            min-width: 300px;
+            padding: 1rem 0;
+            text-align: left;
+            display: flex;
+            flex-flow: column nowrap;
+            row-gap: 5px;
+        }
+
+        input {
+            outline: none;
+            padding: 2px;
+            height: 26px;
+            font-size: 16px;
+            font-family: 'Space Grotesk';
+            position: relative;
+            z-index: 0;
+        }
+
+        label {
+            font-weight: bolder;
+            text-decoration: underline #CCC;
+            color: #FFF;
+            position: relative;
+        }
+
+        .flex div:nth-child(1) .user__notfound::after {
+            content: 'x'; 
+            text-align: center;
+            line-height: 12;
+            z-index: 10;
+            border: 1px solid red;
+            color: red;
+            border-radius: 100%;
+            position: absolute;
+            right: 5px;
+            top: 140.5%;
+            padding: 1px;
+            box-sizing: border-box;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex div:nth-child(2) {
+            background-color: rgb(32, 66, 112);
+            color: rgb(165, 195, 238);
+            max-width: 300px;
+            min-width: 300px;
+            height: auto;
+            max-height: 300px;
+            overflow-y: scroll;
+
+        }
+
+        .flex div:nth-child(2)::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .flex div:nth-child(2)::-webkit-scrollbar-thumb {
+            background-color: rgb(165, 195, 238);
+            border-radius: 120px;
+        }
+
+        .flex div:nth-child(2) p {
+            padding: .5rem;
+            text-align: left;
+            white-space: wrap;
+            height: 100%;
+        }
+
+        .flex div:last-child button {
+            padding: 5px;
+            min-width: 100px;
+            align-self: center;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            color: #134B70;
+            position: relative;
+            z-index: 10;
+            transition: animation, scale 200ms ease-in;
+        }
+
+        .flex div:last-child button:hover {
+            scale: 1.05;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="POST" id="search__user" class="">
+        <fieldset class="flex">
+            <div>
+                <label for="name" class="">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Jim, Tony, Jimmy ...">
+            </div>
+            <div>
+                <p id="user__found"></p>
+            </div>
+            <div>
+                <input type="hidden" name="action" value="search__name">
+                <button type="submit" id="btn__search">Search</button>
+            </div>
+        </fieldset>
+    </form>
+    <script src="./javascript/user.js"></script>
+</body>
+
+</html>
