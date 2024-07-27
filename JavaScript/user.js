@@ -8,7 +8,7 @@ search__user.addEventListener('submit', function (e) {
     e.preventDefault()
 
     const data__search = new FormData(search__user)
-    let url = 'controllers/User.php';
+    let url = 'Controllers/User.php';
 
     fetch(url, {
         method: 'POST',
